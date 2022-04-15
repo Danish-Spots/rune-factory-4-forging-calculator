@@ -1,0 +1,12 @@
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: darkgray;
+  max-width: 10vh;
+
+  & > a {
+    margin-bottom: 5em;
+    border: 1px solid black;
+  }
+}

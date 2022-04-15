@@ -1,0 +1,329 @@
+<div class="outer-container">
+  <div class="inner-container">
+    <div class="top-bar">
+      <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input
+          matInput
+          (keyup)="applyFilter($event)"
+          placeholder="Ex. Fodder"
+          #input
+        />
+      </mat-form-field>
+      <button mat-icon-button>
+        <span
+          class="material-icons"
+          (click)="showAdvancedFilters = showAdvancedFilters ? false : true"
+          >filter_list</span
+        >
+      </button>
+    </div>
+    <div
+      #advancedFilters
+      *ngIf="showAdvancedFilters"
+      [@detailExpand]="showAdvancedFilters ? 'expanded' : 'collapsed'"
+      class="example-element-detail"
+    >
+      <div class="advanced-filters" [style.flex-direction]="flexDirection">
+        <mat-form-field appearance="fill">
+          <mat-label>Locations</mat-label>
+          <mat-select
+            (selectionChange)="filterItems()"
+            [(value)]="selectedLocation"
+          >
+            <mat-option value="">- None -</mat-option>
+            <mat-option
+              *ngFor="let location of locationList"
+              [value]="location"
+            >
+              {{ location }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Category</mat-label>
+          <mat-select
+            (selectionChange)="filterItems()"
+            [(value)]="selectedCategory"
+          >
+            <mat-option value="">- None -</mat-option>
+            <mat-option
+              *ngFor="let category of categoriesList"
+              [value]="category"
+            >
+              {{ category }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Rarity</mat-label>
+          <mat-select
+            (selectionChange)="filterItems()"
+            [(value)]="selectedRarity"
+          >
+            <mat-option [value]="noneRarity">- None -</mat-option>
+            <mat-option *ngFor="let rarity of rarityList" [value]="rarity">
+              {{ rarity }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
+        <ng-container
+          matColumnDef="{{ column }}"
+          *ngFor="let column of displayedColumns"
+        >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            {{ column | titlecase }}
+          </th>
+          <td mat-cell *matCellDef="let item">{{ item[column] }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="expandedDetail">
+          <td
+            mat-cell
+            *matCellDef="let item"
+            [attr.colspan]="displayedColumns.length"
+          >
+            <div
+              class="example-element-detail"
+              [@detailExpand]="item == expandedItem ? 'expanded' : 'collapsed'"
+            >
+              <mat-divider></mat-divider>
+              <div>
+                <div class="add-item" *ngIf="showAddButton">
+                  <button
+                    mat-icon-button
+                    color="primary"
+                    aria-label="Example icon button with a home icon"
+                    (click)="addItem(item)"
+                  >
+                    <mat-icon>add</mat-icon>
+                  </button>
+                </div>
+                <div *ngIf="item.statInfo" class="">
+                  <p class="stats-label" *ngIf="showStats">Stats</p>
+                  <div class="primary-stats">
+                    <span *ngIf="item.statInfo.atk"
+                      >Attack: {{ item.statInfo.atk }}</span
+                    >
+
+                    <span *ngIf="item.statInfo.def"
+                      >Defence: {{ item.statInfo.def }}</span
+                    >
+
+                    <span *ngIf="item.statInfo.matk"
+                      >Magic Attack: {{ item.statInfo.matk }}</span
+                    >
+
+                    <span *ngIf="item.statInfo.mdef"
+                      >Magic Defence: {{ item.statInfo.mdef }}</span
+                    >
+
+                    <span *ngIf="item.statInfo.str"
+                      >Strength: {{ item.statInfo.str }}</span
+                    >
+
+                    <span *ngIf="item.statInfo.vit"
+                      >Vitality: {{ item.statInfo.vit }}</span
+                    >
+
+                    <span *ngIf="item.statInfo.int"
+                      >Intelligence: {{ item.statInfo.int }}</span
+                    >
+                  </div>
+                  <p class="stats-label" *ngIf="showSecondaryStats">
+                    Secondary Stats
+                  </p>
+                  <div class="secondary-stats">
+                    <span *ngIf="item.statInfo.drainAtk"
+                      >Drain Attack: {{ item.statInfo.drainAtk * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.parAtk"
+                      >Paralysis Attack: {{ item.statInfo.parAtk * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.crit"
+                      >Crit: {{ item.statInfo.crit * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.drainRes"
+                      >Drain Resistance:
+                      {{ item.statInfo.drainRes * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.psnAtk"
+                      >Poison Attack: {{ item.statInfo.psnAtk * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.sickAtk"
+                      >Sick Attack: {{ item.statInfo.sickAtk * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.slpAtk"
+                      >Sleep Attack: {{ item.statInfo.slpAtk * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.sealAtk"
+                      >Seal Attack: {{ item.statInfo.sealAtk * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.psnRes"
+                      >Poison Resistance:
+                      {{ item.statInfo.psnRes * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.sealRes"
+                      >Seal Resistance: {{ item.statInfo.sealRes * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.parRes"
+                      >Paralysis Resistance:
+                      {{ item.statInfo.parRes * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.slpRes"
+                      >Sleep Resistance: {{ item.statInfo.slpRes * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.ftgRes"
+                      >Fatigue Resistance:
+                      {{ item.statInfo.ftgRes * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.sickRes"
+                      >Sick Resistance: {{ item.statInfo.sickRes * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.diz"
+                      >Dizzy: {{ item.statInfo.diz }}</span
+                    >
+                    <span *ngIf="item.statInfo.knockAtk"
+                      >Knock Attack: {{ item.statInfo.knockAtk * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.faintRes"
+                      >Faint Resistance:
+                      {{ item.statInfo.faintRes * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.dizRes"
+                      >Dizzy Resistance: {{ item.statInfo.dizRes * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.critRes"
+                      >Crit Resistance: {{ item.statInfo.critRes * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.knockRes"
+                      >Knock Resistance:
+                      {{ item.statInfo.knockRes * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.knock"
+                      >Knock: {{ item.statInfo.knock }}</span
+                    >
+                    <span *ngIf="item.statInfo.stun"
+                      >Stun: {{ item.statInfo.stun * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.ftgAtk"
+                      >Fatigue Attack: {{ item.statInfo.ftgAtk * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.faintAtk"
+                      >Faint Attack: {{ item.statInfo.faintAtk * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.upgradeEffct"
+                      >Upgrade Effect:
+                      {{ item.statInfo.upgradeEffct * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.Effect"
+                      >Effect: {{ item.statInfo.effect }}</span
+                    >
+                    <span *ngIf="item.statInfo.fireRes"
+                      >Fire Resistance: {{ item.statInfo.fireRes * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.waterRe"
+                      >Water Resistance:
+                      {{ item.statInfo.waterRes * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.windRes"
+                      >Wind Resistance: {{ item.statInfo.windRes * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.earthRes"
+                      >Earth Resistance:
+                      {{ item.statInfo.earthRes * 100 }}%</span
+                    >
+                    <span *ngIf="item.statInfo.effect">
+                      Effect: {{ item.statInfo.effect }}
+                    </span>
+                  </div>
+                </div>
+                <div *ngIf="item.drop">
+                  <p class="stats-label" *ngIf="item.drop.locations">
+                    Locations
+                  </p>
+                  <div class="locations">
+                    <span *ngFor="let location of item.drop.locations">
+                      {{ location }}
+                    </span>
+                  </div>
+                  <p class="stats-label" *ngIf="item.drop.monsters">Monster</p>
+                  <div class="monsters">
+                    <p *ngFor="let monster of item.drop.monsters">
+                      {{ monster.name }} in
+                      <span *ngFor="let location of monster.locations"
+                        >{{ location }}
+                      </span>
+                      <span class="monster-condition" *ngIf="monster.condition">
+                        With the following condition:
+                        {{ monster.condition }}</span
+                      >
+                    </p>
+                  </div>
+                  <p class="stats-label" *ngIf="item.drop.other">Other</p>
+                  <div class="monsters">
+                    <p *ngFor="let other of item.drop.other">
+                      {{ other.name }} in
+                      <span *ngFor="let location of other.locations">{{
+                        location
+                      }}</span>
+                    </p>
+                  </div>
+                  <p class="stats-label" *ngIf="item.drop.fishing">Fishing</p>
+                  <div class="monsters">
+                    <p *ngFor="let fishing of item.drop.fishing">
+                      {{ fishing.area }} in
+                      <span *ngFor="let location of fishing.location">{{
+                        location
+                      }}</span>
+                    </p>
+                  </div>
+                  <p class="stats-label" *ngIf="item.drop.chopping">Chopping</p>
+                  <div class="monsters">
+                    <p *ngFor="let chopping of item.drop.chopping">
+                      Cut down {{ chopping.name }}
+                    </p>
+                  </div>
+                  <p class="stats-label" *ngIf="item.drop.condition">
+                    Condition
+                  </p>
+                  <div class="primary-stats">{{ item.drop.condition }}</div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let item; columns: displayedColumns"
+          class="example-element-row"
+          [class.example-expanded-row]="expandedItem === item"
+          (click)="handleClick(item)"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: ['expandedDetail']"
+          class="example-detail-row"
+        ></tr>
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">
+            No data matching the filter "{{ input.value }}"
+          </td>
+        </tr>
+      </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[14, 20, 25, 50, 100]"
+        aria-label="Select page of materials"
+      ></mat-paginator>
+    </div>
+  </div>
+</div>

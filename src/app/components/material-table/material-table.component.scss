@@ -1,0 +1,110 @@
+table {
+  width: 100%;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+td,
+th {
+  width: 25%;
+}
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  width: 100%;
+}
+
+.primary-stats {
+  margin-left: 1em;
+
+  & > span {
+    margin-right: 1em;
+  }
+}
+
+.secondary-stats {
+  margin-left: 1em;
+
+  & > span {
+    margin-right: 1em;
+  }
+}
+.stats-label {
+  margin-bottom: 0;
+}
+.locations {
+  margin-left: 1em;
+
+  & > span {
+    margin-right: 1em;
+  }
+}
+
+.monsters {
+  margin-left: 1em;
+
+  & > p {
+    margin-right: 1em;
+    margin-bottom: 0;
+  }
+}
+.horizontal-spans {
+  margin-right: 1em;
+}
+
+.monster-condition {
+  display: block;
+  margin-left: 1em;
+}
+
+.outer-container {
+  display: flex;
+  justify-content: center;
+}
+.inner-container {
+  width: 90%;
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  & > button {
+  }
+}
+
+.advanced-filters {
+  display: flex;
+  width: 100%;
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+.add-item {
+  float: right;
+}

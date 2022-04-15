@@ -1,0 +1,704 @@
+<!-- <form class="form-container" [formGroup]="calculationForm">
+  <div class="vertical-flex">
+    <h4>Choose Materials in Crafting/Forging</h4>
+    <div class="horizontal-flex">
+      <mat-form-field appearance="fill">
+        <mat-label>Material 1</mat-label>
+        <mat-select
+          placeholder="Material 1"
+          #singleSelect
+          formControlName="material1"
+        >
+          <mat-option>
+            <ngx-mat-select-search
+              placeholderLabel="Search"
+              noEntriesFoundLabel="No materials found matching filter"
+              formControlName="materialFilter"
+            >
+            </ngx-mat-select-search>
+          </mat-option>
+
+          <mat-option
+            *ngFor="let website of filteredMaterials$ | async"
+            [value]="website"
+          >
+            {{ website.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Material 1</mat-label>
+        <mat-select
+          placeholder="Material 1"
+          #singleSelect
+          formControlName="material1"
+        >
+          <mat-option>
+            <ngx-mat-select-search
+              placeholderLabel="Search"
+              noEntriesFoundLabel="No materials found matching filter"
+              formControlName="materialFilter"
+            >
+            </ngx-mat-select-search>
+          </mat-option>
+
+          <mat-option
+            *ngFor="let website of filteredMaterials$ | async"
+            [value]="website"
+          >
+            {{ website.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Material 1</mat-label>
+        <mat-select
+          placeholder="Material 1"
+          #singleSelect
+          formControlName="material1"
+        >
+          <mat-option>
+            <ngx-mat-select-search
+              placeholderLabel="Search"
+              noEntriesFoundLabel="No materials found matching filter"
+              formControlName="materialFilter"
+            >
+            </ngx-mat-select-search>
+          </mat-option>
+
+          <mat-option
+            *ngFor="let website of filteredMaterials$ | async"
+            [value]="website"
+          >
+            {{ website.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="horizontal-flex">
+      <mat-form-field appearance="fill">
+        <mat-label>Material 1</mat-label>
+        <mat-select
+          placeholder="Material 1"
+          #singleSelect
+          formControlName="material1"
+        >
+          <mat-option>
+            <ngx-mat-select-search
+              placeholderLabel="Search"
+              noEntriesFoundLabel="No materials found matching filter"
+              formControlName="materialFilter"
+            >
+            </ngx-mat-select-search>
+          </mat-option>
+
+          <mat-option
+            *ngFor="let website of filteredMaterials$ | async"
+            [value]="website"
+          >
+            {{ website.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Material 1</mat-label>
+        <mat-select
+          placeholder="Material 1"
+          #singleSelect
+          formControlName="material1"
+        >
+          <mat-option>
+            <ngx-mat-select-search
+              placeholderLabel="Search"
+              noEntriesFoundLabel="No materials found matching filter"
+              formControlName="materialFilter"
+            >
+            </ngx-mat-select-search>
+          </mat-option>
+
+          <mat-option
+            *ngFor="let website of filteredMaterials$ | async"
+            [value]="website"
+          >
+            {{ website.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Material 1</mat-label>
+        <mat-select
+          placeholder="Material 1"
+          #singleSelect
+          formControlName="material1"
+        >
+          <mat-option>
+            <ngx-mat-select-search
+              placeholderLabel="Search"
+              noEntriesFoundLabel="No materials found matching filter"
+              formControlName="materialFilter"
+            >
+            </ngx-mat-select-search>
+          </mat-option>
+
+          <mat-option
+            *ngFor="let website of filteredMaterials$ | async"
+            [value]="website"
+          >
+            {{ website.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="divider">
+      <mat-divider></mat-divider>
+    </div>
+    <h4>Choose Materials for Upgrading</h4>
+  </div>
+  <div class="horizontal-flex">
+    <mat-form-field appearance="fill">
+      <mat-label>Material 1</mat-label>
+      <mat-select
+        placeholder="Material 1"
+        #singleSelect
+        formControlName="material1"
+      >
+        <mat-option>
+          <ngx-mat-select-search
+            placeholderLabel="Search"
+            noEntriesFoundLabel="No materials found matching filter"
+            formControlName="materialFilter"
+          >
+          </ngx-mat-select-search>
+        </mat-option>
+
+        <mat-option
+          *ngFor="let website of filteredMaterials$ | async"
+          [value]="website"
+        >
+          {{ website.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Material 1</mat-label>
+      <mat-select
+        placeholder="Material 1"
+        #singleSelect
+        formControlName="material1"
+      >
+        <mat-option>
+          <ngx-mat-select-search
+            placeholderLabel="Search"
+            noEntriesFoundLabel="No materials found matching filter"
+            formControlName="materialFilter"
+          >
+          </ngx-mat-select-search>
+        </mat-option>
+
+        <mat-option
+          *ngFor="let website of filteredMaterials$ | async"
+          [value]="website"
+        >
+          {{ website.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Material 1</mat-label>
+      <mat-select
+        placeholder="Material 1"
+        #singleSelect
+        formControlName="material1"
+      >
+        <mat-option>
+          <ngx-mat-select-search
+            placeholderLabel="Search"
+            noEntriesFoundLabel="No materials found matching filter"
+            formControlName="materialFilter"
+          >
+          </ngx-mat-select-search>
+        </mat-option>
+
+        <mat-option
+          *ngFor="let website of filteredMaterials$ | async"
+          [value]="website"
+        >
+          {{ website.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="horizontal-flex">
+    <mat-form-field appearance="fill">
+      <mat-label>Material 1</mat-label>
+      <mat-select
+        placeholder="Material 1"
+        #singleSelect
+        formControlName="material1"
+      >
+        <mat-option>
+          <ngx-mat-select-search
+            placeholderLabel="Search"
+            noEntriesFoundLabel="No materials found matching filter"
+            formControlName="materialFilter"
+          >
+          </ngx-mat-select-search>
+        </mat-option>
+
+        <mat-option
+          *ngFor="let website of filteredMaterials$ | async"
+          [value]="website"
+        >
+          {{ website.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Material 1</mat-label>
+      <mat-select
+        placeholder="Material 1"
+        #singleSelect
+        formControlName="material1"
+      >
+        <mat-option>
+          <ngx-mat-select-search
+            placeholderLabel="Search"
+            noEntriesFoundLabel="No materials found matching filter"
+            formControlName="materialFilter"
+          >
+          </ngx-mat-select-search>
+        </mat-option>
+
+        <mat-option
+          *ngFor="let website of filteredMaterials$ | async"
+          [value]="website"
+        >
+          {{ website.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Material 1</mat-label>
+      <mat-select
+        placeholder="Material 1"
+        #singleSelect
+        formControlName="material1"
+      >
+        <mat-option>
+          <ngx-mat-select-search
+            placeholderLabel="Search"
+            noEntriesFoundLabel="No materials found matching filter"
+            formControlName="materialFilter"
+          >
+          </ngx-mat-select-search>
+        </mat-option>
+
+        <mat-option
+          *ngFor="let website of filteredMaterials$ | async"
+          [value]="website"
+        >
+          {{ website.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="horizontal-flex">
+    <mat-form-field appearance="fill">
+      <mat-label>Material 1</mat-label>
+      <mat-select
+        placeholder="Material 1"
+        #singleSelect
+        formControlName="material1"
+      >
+        <mat-option>
+          <ngx-mat-select-search
+            placeholderLabel="Search"
+            noEntriesFoundLabel="No materials found matching filter"
+            formControlName="materialFilter"
+          >
+          </ngx-mat-select-search>
+        </mat-option>
+
+        <mat-option
+          *ngFor="let website of filteredMaterials$ | async"
+          [value]="website"
+        >
+          {{ website.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Material 1</mat-label>
+      <mat-select
+        placeholder="Material 1"
+        #singleSelect
+        formControlName="material1"
+      >
+        <mat-option>
+          <ngx-mat-select-search
+            placeholderLabel="Search"
+            noEntriesFoundLabel="No materials found matching filter"
+            formControlName="materialFilter"
+          >
+          </ngx-mat-select-search>
+        </mat-option>
+
+        <mat-option
+          *ngFor="let website of filteredMaterials$ | async"
+          [value]="website"
+        >
+          {{ website.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Material 1</mat-label>
+      <mat-select
+        placeholder="Material 1"
+        #singleSelect
+        formControlName="material1"
+      >
+        <mat-option>
+          <ngx-mat-select-search
+            placeholderLabel="Search"
+            noEntriesFoundLabel="No materials found matching filter"
+            formControlName="materialFilter"
+          >
+          </ngx-mat-select-search>
+        </mat-option>
+
+        <mat-option
+          *ngFor="let website of filteredMaterials$ | async"
+          [value]="website"
+        >
+          {{ website.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form> -->
+
+<div class="horizontal-flex-body">
+  <div class="material-table">
+    <app-material-table
+      [displayedColumns]="['name']"
+      [flexDirection]="'column'"
+      (clickedItem)="addItem($event)"
+      [showAddButton]="true"
+    ></app-material-table>
+  </div>
+
+  <div cdkDropListGroup>
+    <div class="example-container">
+      <h1>Available Materials</h1>
+
+      <div
+        cdkDropList
+        [cdkDropListData]="availableMaterials"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div
+          class="example-box__available"
+          *ngFor="let item of availableMaterials"
+          cdkDrag
+        >
+          <div class="horizontal-flex__items">
+            <span>
+              {{ item.name }}
+            </span>
+            <span> Rarity: {{ item.rarity }} </span>
+            <button
+              mat-icon-button
+              color="primary"
+              aria-label="Example icon button with a home icon"
+              (click)="removeItem(item)"
+            >
+              <mat-icon>remove</mat-icon>
+            </button>
+          </div>
+          <div class="item-level">
+            <mat-form-field appearance="fill">
+              <mat-label>Item Level</mat-label>
+              <mat-select [(value)]="item.level">
+                <mat-option
+                  *ngFor="let level of availableLevels"
+                  [value]="level"
+                >
+                  {{ level }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example-container">
+      <h1>Chosen Materials</h1>
+
+      <div
+        class="disabled-drag"
+        cdkDropList
+        [cdkDropListData]="chosenMaterials"
+        class="example-list"
+        cdkDropListDisabled
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div
+          class="example-box__chosen disabled-drag"
+          *ngFor="let item of chosenMaterials"
+          cdkDrag
+        >
+          <div class="horizontal-flex__items">
+            <span>
+              {{ item.name }}
+            </span>
+            <span> Rarity: {{ item.rarity }} </span>
+            <span> Level: {{ item.level }} </span>
+            <button
+              mat-icon-button
+              color="primary"
+              aria-label="Example icon button with a home icon"
+              (click)="removeItemFromChosen(item)"
+            >
+              <mat-icon>remove</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <p>Total materials: {{ chosenMaterials.length }} / 15</p>
+    </div>
+  </div>
+  <div class="choice-area">
+    <h1 class="top-h1">Choose Weapon or</h1>
+    <h1>Gear</h1>
+    <mat-radio-group aria-label="Select an option" [(ngModel)]="gearChoice">
+      <mat-radio-button
+        *ngFor="let gear of gearChoices"
+        [value]="gear"
+        (change)="radioChangeGear($event)"
+        >{{ gear }}</mat-radio-button
+      >
+    </mat-radio-group>
+    <ng-container *ngIf="gearChoice === 'Weapon'">
+      <h3>Attack or Magic Attack</h3>
+      <mat-radio-group
+        aria-label="Select an option"
+        [(ngModel)]="damageTypeChoice"
+      >
+        <mat-radio-button
+          *ngFor="let type of damageChoices"
+          [value]="type"
+          (change)="radioChangeType($event)"
+          >{{ type }}</mat-radio-button
+        >
+      </mat-radio-group>
+    </ng-container>
+  </div>
+
+  <div class="stat-area">
+    <h1>Calculated Stats</h1>
+    <h2 *ngIf="showStats">Stats</h2>
+    <div class="primary-stats">
+      <span *ngIf="calculatedStats.atk || bonuses.atk"
+        ><h3>Attack:</h3>
+        {{ (calculatedStats.atk ?? 0) + bonuses.atk }}</span
+      >
+
+      <span *ngIf="calculatedStats.def || bonuses.def"
+        ><h3>Defence:</h3>
+        {{ (calculatedStats.def ?? 0) + bonuses.def }}</span
+      >
+
+      <span *ngIf="calculatedStats.matk || bonuses.matk"
+        ><h3>Magic Attack:</h3>
+        {{ (calculatedStats.matk ?? 0) + bonuses.matk }}</span
+      >
+
+      <span *ngIf="calculatedStats.mdef || bonuses.mdef"
+        ><h3>Magic Defence:</h3>
+        {{ (calculatedStats.mdef ?? 0) + bonuses.mdef }}</span
+      >
+
+      <span *ngIf="calculatedStats.str"
+        ><h3>Strength:</h3>
+        {{ calculatedStats.str }}</span
+      >
+
+      <span *ngIf="calculatedStats.vit"
+        ><h3>Vitality:</h3>
+        {{ calculatedStats.vit }}</span
+      >
+
+      <span *ngIf="calculatedStats.int"
+        ><h3>Intelligence:</h3>
+        {{ calculatedStats.int }}</span
+      >
+    </div>
+    <mat-divider
+      *ngIf="showStats && showSecondaryStats"
+      class="divider"
+    ></mat-divider>
+    <h2 class="stats-label" *ngIf="showSecondaryStats">Secondary Stats</h2>
+    <div class="primary-stats">
+      <span *ngIf="calculatedStats.drainAtk"
+        >Drain Attack: {{ calculatedStats.drainAtk * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.parAtk"
+        >Paralysis Attack: {{ calculatedStats.parAtk * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.crit"
+        >Crit: {{ calculatedStats.crit * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.drainRes"
+        >Drain Resistance: {{ calculatedStats.drainRes * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.psnAtk"
+        >Poison Attack: {{ calculatedStats.psnAtk * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.sickAtk"
+        >Sick Attack: {{ calculatedStats.sickAtk * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.slpAtk"
+        >Sleep Attack: {{ calculatedStats.slpAtk * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.sealAtk"
+        >Seal Attack: {{ calculatedStats.sealAtk * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.psnRes"
+        >Poison Resistance: {{ calculatedStats.psnRes * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.sealRes"
+        >Seal Resistance: {{ calculatedStats.sealRes * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.parRes"
+        >Paralysis Resistance: {{ calculatedStats.parRes * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.slpRes"
+        >Sleep Resistance: {{ calculatedStats.slpRes * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.ftgRes"
+        >Fatigue Resistance: {{ calculatedStats.ftgRes * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.sickRes"
+        >Sick Resistance: {{ calculatedStats.sickRes * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.diz">Dizzy: {{ calculatedStats.diz }}</span>
+      <span *ngIf="calculatedStats.knockAtk"
+        >Knock Attack: {{ calculatedStats.knockAtk * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.faintRes"
+        >Faint Resistance: {{ calculatedStats.faintRes * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.dizRes"
+        >Dizzy Resistance: {{ calculatedStats.dizRes * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.critRes"
+        >Crit Resistance: {{ calculatedStats.critRes * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.knockRes"
+        >Knock Resistance: {{ calculatedStats.knockRes * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.knock"
+        >Knock: {{ calculatedStats.knock }}</span
+      >
+      <span *ngIf="calculatedStats.stun"
+        >Stun: {{ calculatedStats.stun * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.ftgAtk"
+        >Fatigue Attack: {{ calculatedStats.ftgAtk * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.faintAtk"
+        >Faint Attack: {{ calculatedStats.faintAtk * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.upgradeEffct"
+        >Upgrade Effect: {{ calculatedStats.upgradeEffct * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.fireRes"
+        >Fire Resistance: {{ calculatedStats.fireRes * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.waterRes"
+        >Water Resistance: {{ calculatedStats.waterRes * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.windRes"
+        >Wind Resistance: {{ calculatedStats.windRes * 100 }}%</span
+      >
+      <span *ngIf="calculatedStats.earthRes"
+        >Earth Resistance: {{ calculatedStats.earthRes * 100 }}%</span
+      >
+    </div>
+    <mat-divider
+      *ngIf="allEffects.length > 0 && (showSecondaryStats || showStats)"
+      class="divider"
+    ></mat-divider>
+    <ng-container *ngIf="allEffects.length > 0">
+      <h2>Effects:</h2>
+      <div class="primary-stats">
+        <span *ngFor="let effect of allEffects">
+          {{ effect }}
+        </span>
+      </div>
+    </ng-container>
+    <mat-divider
+      class="divider"
+      *ngIf="
+        showRarityBonuses &&
+        (allEffects.length > 0 || showSecondaryStats || showStats)
+      "
+    ></mat-divider>
+    <div *ngIf="showRarityBonuses">
+      <h2>Total Rarity Bonuses</h2>
+      <div class="primary-stats">
+        <span *ngIf="bonusesRarity.atk"
+          ><h3>Attack:</h3>
+          {{ bonusesRarity.atk }}</span
+        >
+
+        <span *ngIf="bonusesRarity.def"
+          ><h3>Defence:</h3>
+          {{ bonusesRarity.def }}</span
+        >
+
+        <span *ngIf="bonusesRarity.matk"
+          ><h3>Magic Attack:</h3>
+          {{ bonusesRarity.matk }}</span
+        >
+      </div>
+    </div>
+    <mat-divider
+      class="divider"
+      *ngIf="
+        showLevelBonuses &&
+        (showRarityBonuses ||
+          allEffects.length > 0 ||
+          showSecondaryStats ||
+          showStats)
+      "
+    ></mat-divider>
+    <div *ngIf="showLevelBonuses">
+      <h2>Total Level Bonuses</h2>
+      <div class="primary-stats">
+        <span *ngIf="bonusesLevel.atk"
+          ><h3>Attack:</h3>
+          {{ bonusesLevel.atk }}</span
+        >
+
+        <span *ngIf="bonusesLevel.def"
+          ><h3>Defence:</h3>
+          {{ bonusesLevel.def }}</span
+        >
+
+        <span *ngIf="bonusesLevel.matk"
+          ><h3>Magic Attack:</h3>
+          {{ bonusesLevel.matk }}</span
+        >
+        <span *ngIf="bonusesLevel.mdef"
+          ><h3>Magic Attack:</h3>
+          {{ bonusesLevel.mdef }}</span
+        >
+      </div>
+    </div>
+  </div>
+</div>
